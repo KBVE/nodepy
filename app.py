@@ -72,6 +72,9 @@ def api_id():
         if book['id'] == id:
             results.append(book)
 
+    if not results:
+        return "Error: No League Champion Found"
+
     return jsonify(results)
 
 @app.route("/api/v1/books",  methods = ['POST'])
