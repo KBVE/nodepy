@@ -51,8 +51,8 @@ books = [
 
 @app.route('/', methods=['GET'])
 def home():
-    return '''<h1>VLib - Online Library</h1>
-                <p>A flask api implementation for book information.</p>'''
+    return '''<h1>Cloud Function - League of Legends</h1>
+                <p>A flask api implementation for League of Legends information.</p>'''
 
 
 @app.route('/api/v1/books/all', methods=['GET'])
