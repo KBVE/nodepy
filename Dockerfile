@@ -16,3 +16,9 @@ CMD ["pm2-runtime", "ecosystem.config.js"]
 
 # Python Command Below but we will run the python scripts through NodeJS
 #CMD ["python3", "app.py"]
+
+# Build Command 
+# docker build -t delete-cloud-function-lolpython-dev .
+
+# Run Command
+# docker run -p 12.0.0--name 
