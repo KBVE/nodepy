@@ -4,7 +4,7 @@ import flask
 from flask import request, jsonify
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+app.config["DEBUG"] = False
 
 # Create some test data for our catalog in the form of a list of dictionaries.
 books = [
@@ -65,7 +65,11 @@ def api_id():
     if 'id' in request.args:
         id = int(request.args['id'])
     else:
-        return "Error: No id field provided. Please specify an id."
+        return jsonify(
+        data = 'Error : No id field provided. Please specify an id.',
+        status = 418,
+        mimetype='application/json'
+        )
 
     results = []
     for book in books:
@@ -73,7 +77,11 @@ def api_id():
             results.append(book)
 
     if not results:
-        return "Error: No League Champion Found"
+        return jsonify(
+        data = 'Error : No League Champion Found.',
+        status = 418,
+        mimetype='application/json'
+        )
 
     return jsonify(results)
 

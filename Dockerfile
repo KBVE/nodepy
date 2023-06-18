@@ -1,12 +1,18 @@
-FROM alpine:latest
+FROM nikolaik/python-nodejs:latest as production
 
-RUN apk update
-RUN apk add py-pip
-RUN apk add --no-cache python3-dev 
-RUN pip install --upgrade pip
+RUN pip install flask
+RUN npm install pm2 -g
+
 
 WORKDIR /app
+
 COPY . /app
-RUN pip --no-cache-dir install -r requirements.txt
+
+RUN yarn install
+
 EXPOSE 5000
-CMD ["python3", "app.py"]
+
+CMD ["pm2-runtime", "ecosystem.config.js"]
+
+# Python Command Below but we will run the python scripts through NodeJS
+#CMD ["python3", "app.py"]
