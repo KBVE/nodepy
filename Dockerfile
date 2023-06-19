@@ -1,6 +1,9 @@
 FROM nikolaik/python-nodejs:latest as production
 
-RUN pip install flask
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install ffmpeg -y
+RUN pip install flask yt-dlp pocketbase
 RUN npm install pm2 -g
 
 
@@ -13,6 +16,3 @@ RUN yarn install
 EXPOSE 5000
 
 CMD ["pm2-runtime", "ecosystem.config.js"]
-
-# Python Command Below but we will run the python scripts through NodeJS
-#CMD ["python3", "app.py"]

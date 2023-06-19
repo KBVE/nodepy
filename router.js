@@ -12,7 +12,7 @@ function isJsonString(str) {
   return true;
 }
 
-router.all("/api/v1/:token", async (ctx, next) => {
+router.all("/app/api/:token", async (ctx, next) => {
   try {
     _v(`{r} -> api -> token ${ctx.params.token}`);
     if (!ctx.params.token) ctx.throw(500, "Missing Token");
@@ -48,7 +48,7 @@ router.all("/api/v1/:token", async (ctx, next) => {
   }
 });
 
-router.all("/api/v1/blueprint/:token", async (ctx, next) => {
+router.all("/app/api/blueprint/:token", async (ctx, next) => {
   try {
     _v(`{r} -> blueprint -> token ${ctx.params.token}`);
   } catch (error) {
@@ -58,10 +58,6 @@ router.all("/api/v1/blueprint/:token", async (ctx, next) => {
       message: error,
     };
   }
-});
-
-router.get("/", (ctx, next) => {
-  ctx.body = ` Welcome to LoL Python`;
 });
 
 router.get("/docs", (ctx, next) => {
