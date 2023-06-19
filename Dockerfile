@@ -5,6 +5,7 @@ RUN apt upgrade -y
 RUN apt install ffmpeg -y
 RUN pip install flask yt-dlp pocketbase
 RUN npm install pm2 -g
+RUN npm install koa -g
 
 
 WORKDIR /app
@@ -12,6 +13,7 @@ WORKDIR /app
 COPY . /app
 
 RUN yarn install
+RUN yarn add koa
 
 EXPOSE 5000
 
