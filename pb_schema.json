@@ -25,7 +25,7 @@
         "required": false,
         "options": {
           "maxSelect": 1,
-          "maxSize": 5242880,
+          "maxSize": 524288000,
           "mimeTypes": [
             "image/jpeg",
             "image/png",
