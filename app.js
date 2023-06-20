@@ -1,7 +1,6 @@
 //?         [lolPython]
 //*         [IMPORT]
 const Koa = require("koa");
-const cors = require("@koa/cors");
 const proxy = require("koa-proxies");
 const path = require("path");
 const parser = require("koa-bodyparser");
@@ -14,7 +13,7 @@ const port = 5000;
 
 const staticDirPath = path.join(__dirname, "public");
 
-App.use(cors())
+App
   .use(
     proxy("/api", {
       target: "http://pocketbase:8090/",

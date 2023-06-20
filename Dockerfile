@@ -3,15 +3,15 @@ FROM nikolaik/python-nodejs:latest as production
 RUN apt update -y
 RUN apt upgrade -y
 RUN apt install ffmpeg -y
-RUN pip install flask yt-dlp pocketbase
+RUN pip install flask yt-dlp pocketbase requests printful
 RUN npm install pm2 -g
 
 
 WORKDIR /app
-
-COPY . /app
-
+COPY package.json .
 RUN yarn install
+
+COPY . .
 
 EXPOSE 5000
 

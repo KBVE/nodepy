@@ -24,6 +24,7 @@ services:
     command: pm2-runtime ecosystem.config.js
     volumes: 
       - .:/app
+      - /app/node_modules
     ports: 
       - "80:5000"
     expose:
