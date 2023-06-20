@@ -19,7 +19,7 @@ App
       target: "http://pocketbase:8090/",
       changeOrigin: true,
       //secure: false,
-      timeout: 10000,
+      timeout: 300000,
       //rewrite: path => path.replace(/^\/kbvedatabase(\/|\/\w+)?$/, '/_'),
       logs: true,
     })
@@ -29,7 +29,7 @@ App
       target: "http://pocketbase:8090/",
       changeOrigin: true,
       //secure: false,
-      timeout: 10000,
+      timeout: 300000,
       //rewrite: path => path.replace(/^\/kbvedatabase(\/|\/\w+)?$/, '/_'),
       logs: true,
     })
