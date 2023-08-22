@@ -48,11 +48,19 @@ router.all("/app/api/:token/:file", async (ctx, next) => {
   }
 });
 
-router.get("/vardump", (ctx, next) => {
-  ctx.status = 418;
-  ctx.body = `Var Dump ${process.env.KBVE_API}`;
-  ctx.app.emit('error', err, ctx);
+router.get("/app/app/", (ctx, next) => {
+  try {
+    _v(`{r} -> app -? ${process.env.KBVE_API}`);
+  }
+  catch (error) {
+    _v(error);
+    ctx.body = {
+      status: 500,
+      message: error,
+    };
+  }
 });
+
 router.all("/app/api/blueprint/:token", async (ctx, next) => {
   try {
     _v(`{r} -> blueprint -> token ${ctx.params.token}`);
