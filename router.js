@@ -3,6 +3,10 @@ const router = new Router();
 const _v = require("./v");
 const { pyNodeManager } = require("./pynode");
 
+const validApiKey = require("./appwrite");
+
+
+
 function isJsonString(str) {
   try {
     JSON.parse(str);
@@ -12,11 +16,22 @@ function isJsonString(str) {
   return true;
 }
 
-router.all("/app/api/:token/:file", async (ctx, next) => {
+router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
+   
   try {
-    _v(`{r} -> api -> token ${ctx.params.token}`);
-    if (!ctx.params.token) ctx.throw(500, "Missing Token");
+    _v(`{r} -> api -> uuid ${ctx.params.uuid}`);
+    if (!ctx.params.uuid) ctx.throw(500, "Missing UUID");
+    if (!ctx.params.key) ctx.throw(500, "Missing Key");
     if (!ctx.params.file) ctx.throw(500, "Missing File Query");
+
+    const _uuid = ctx.params.uuid;
+    const _key = ctx.params.key;
+
+    if(!validApiKey(_uuid, _key)) {
+      ctx.throw(500, "API Key invalid");
+    }
+    
+
     const _file = ctx.params.file;
     let _json = "";
     if (ctx.query.json) {
@@ -48,18 +63,7 @@ router.all("/app/api/:token/:file", async (ctx, next) => {
   }
 });
 
-router.get("/app/app/", (ctx, next) => {
-  try {
-    _v(`{r} -> app -? ${process.env.KBVE_API}`);
-  }
-  catch (error) {
-    _v(error);
-    ctx.body = {
-      status: 500,
-      message: error,
-    };
-  }
-});
+
 
 router.all("/app/api/blueprint/:token", async (ctx, next) => {
   try {
