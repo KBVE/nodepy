@@ -16,7 +16,7 @@ const staticDirPath = path.join(__dirname, "public");
 App
   .use(
     proxy("/api", {
-      target: "http://pocketbase:8090/",
+      target: "https://pb.kbve.com/",
       changeOrigin: true,
       //secure: false,
       timeout: 300000,
@@ -26,7 +26,7 @@ App
   )
   .use(
     proxy("/_", {
-      target: "http://pocketbase:8090/",
+      target: "https://pb.kbve.com/",
       changeOrigin: true,
       //secure: false,
       timeout: 300000,

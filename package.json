@@ -1,15 +1,15 @@
 {
-    "name": "cloud-function-lolpython",
+    "name": "nodepy",
     "version": "1.0.0",
     "private": true,
-    "description": "LOL Python",
+    "description": "KBVE NodePy",
     "main": "index.js",
     "scripts": {
         "start": "node app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
-    "author": "h0lybyte",
+    "author": "kbve",
     "license": "MIT",
     "dependencies": {
         "axios": "^0.26.1",

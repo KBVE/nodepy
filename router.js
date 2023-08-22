@@ -12,12 +12,12 @@ function isJsonString(str) {
   return true;
 }
 
-router.all("/app/api/:token", async (ctx, next) => {
+router.all("/app/api/:token/:file", async (ctx, next) => {
   try {
     _v(`{r} -> api -> token ${ctx.params.token}`);
     if (!ctx.params.token) ctx.throw(500, "Missing Token");
-    if (!ctx.query.file) ctx.throw(500, "Missing File Query");
-    const _file = ctx.query.file;
+    if (!ctx.params.file) ctx.throw(500, "Missing File Query");
+    const _file = ctx.params.file;
     let _json = "";
     if (ctx.query.json) {
       try {
