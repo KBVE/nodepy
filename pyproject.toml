@@ -14,8 +14,8 @@ include = ["LICENSE"]
 [tool.poetry.dependencies]
 # Updated Python version
 python = ">=3.11.4,<4.0"
-# langchain = ">=0.0.250"
-# pydantic = ">=2.0.0"
+langchain = ">=0.0.250"
+pydantic = ">=2.0.0"
 llama-index = "^0.8.5.post2"
 anthropic = "^0.3.10"
 appwrite = "^2.0.2"
