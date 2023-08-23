@@ -13,10 +13,12 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN pip install flask yt-dlp pocketbase requests appwrite
 RUN npm install pm2 -g
 
-
 WORKDIR /app
 COPY package.json .
 RUN yarn install
+
+COPY poetry.lock pyproject.toml ./
+RUN poetry install
 
 COPY . .
 
