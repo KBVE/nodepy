@@ -17,7 +17,7 @@ ENV PYTHONUNBUFFERED=1 \
 RUN apt update -y
 RUN apt upgrade -y
 
-RUN apt install ffmpeg curl sqlite3 build-essential -y
+RUN apt install ffmpeg curl build-essential -y
 RUN npm install pm2 -g
 
 
