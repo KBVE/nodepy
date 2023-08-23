@@ -8,3 +8,4 @@ cd /usr/local/share/sqlite3
 ./configure
 make -j 1
 make install
+export LD_LIBRARY_PATH="/usr/local/lib"
