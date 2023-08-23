@@ -17,6 +17,7 @@ class pyNode {
 
   async _kbveInit() {
     this.loading = true;
+    console.log(await spawnSync("pip", ['freeze']));
     this.process = await spawnSync("python3", [`/app/scripts/${this.file}.py`, this.json]);
     this.error = this.process.stderr?.toString()?.trim();
     this.result = this.process.stdout?.toString()?.trim();
