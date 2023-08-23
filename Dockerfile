@@ -27,11 +27,14 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=${POETRY_HOME} pyt
     chmod a+x /opt/poetry/bin/poetry
 
 
-
+COPY sqlite.sh /sqlite.sh
+RUN chmod a+x /sqlite.sh
+RUN /bin/bash -c '/sqlite.sh'
 
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
+
 
 WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
