@@ -17,7 +17,7 @@ RUN apt update -y
 RUN apt upgrade -y
 
 RUN apt install ffmpeg curl -y
-RUN pip install flask yt-dlp pocketbase requests appwrite
+RUN pip install flask yt-dlp pocketbase requests appwrite chromadb
 RUN npm install pm2 -g
 
 
