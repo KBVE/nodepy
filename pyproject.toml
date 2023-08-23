@@ -27,7 +27,7 @@ sentence-transformers = "^2.2.2"
 guidance = "^0.0.64"
 fastapi = "^0.101.1"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
-chromadb = "^0.4.6"
+chromadb = ">=0.4.0"
 gunicorn = "^21.2.0"
 
 
