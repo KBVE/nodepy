@@ -28,9 +28,7 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=${POETRY_HOME} pyt
 
 
 
-WORKDIR /app
-COPY package.json .
-RUN yarn install
+
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
@@ -38,6 +36,9 @@ RUN chmod +x /docker-entrypoint.sh
 WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
 RUN poetry install
+
+COPY package.json .
+RUN yarn install
 
 COPY . .
 
