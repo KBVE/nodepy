@@ -8,4 +8,3 @@ cd /usr/local/share/sqlite3
 ./configure
 make -j 1
 make install
-#cd /opt/pysetup/
