@@ -27,7 +27,7 @@ sentence-transformers = "^2.2.2"
 guidance = "^0.0.64"
 fastapi = "^0.101.1"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
-chromadb = ">=0.4.0"
+chromadb = ">=0.4.6"
 gunicorn = "^21.2.0"
 
 
@@ -35,8 +35,15 @@ gunicorn = "^21.2.0"
 typing-inspect = "0.8.0"
 typing_extensions = "4.5.0"
 types-requests = "2.28.11.8"
-black = "22.12.0"
-isort = "5.11.4"
+#black = "22.12.0"
+#isort = "5.11.4"
+# ChromaCrap
+flake8 = "^6.0.0"
+mypy = "^1.0.1"
+isort = "^5.12.0"
+jupyter = "^1.0.0"
+notebook = "^6.5.2"
+black = "^23.1.0"
 
 
 [build-system]
