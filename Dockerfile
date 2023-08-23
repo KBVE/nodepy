@@ -1,6 +1,8 @@
 # Base Image
 FROM nikolaik/python-nodejs:latest as production
 
+ENV VENV_PATH="/opt/pysetup/.venv"
+
 
 RUN apt update -y
 RUN apt upgrade -y
@@ -14,19 +16,25 @@ RUN npm install pm2 -g
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 
+
 WORKDIR /app
 COPY package.json .
 RUN yarn install
 
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+
 
 RUN pip install flask yt-dlp pocketbase requests appwrite
 
-COPY poetry.lock pyproject.toml /app/
-RUN poetry config virtualenvs.in-project false
+COPY poetry.lock pyproject.toml ./
+
 RUN poetry install
 
 COPY . .
 
 EXPOSE 5000
 
+ENTRYPOINT /docker-entrypoint.sh $0 $@
 CMD ["pm2-runtime", "ecosystem.config.js"]
