@@ -1,5 +1,6 @@
 # Base Image
-FROM python3.11-nodejs20-bullseye:latest as production
+#FROM nikolaik/python-nodejs:latest as production
+FROM nikolaik/python-nodejs:python3.11-nodejs20-bullseye as production
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
