@@ -7,23 +7,25 @@ RUN apt upgrade -y
 
 RUN apt install ffmpeg curl -y
 
+RUN npm install pm2 -g
+
+
 # Poetry 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-RUN pip install flask yt-dlp pocketbase requests appwrite
-RUN npm install pm2 -g
 
 WORKDIR /app
 COPY package.json .
 RUN yarn install
 
+
+RUN pip install flask yt-dlp pocketbase requests appwrite
+
 COPY poetry.lock pyproject.toml ./
-#RUN poetry config virtualenv.create false
 RUN poetry config virtualenvs.in-project false
-#RUN poetry config install.user true
 RUN poetry install
 
-COPY . /app
+COPY . .
 
 EXPOSE 5000
 
