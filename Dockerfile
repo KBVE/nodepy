@@ -21,7 +21,7 @@ RUN yarn install
 
 RUN pip install flask yt-dlp pocketbase requests appwrite
 
-COPY poetry.lock pyproject.toml ./
+COPY poetry.lock pyproject.toml /app/
 RUN poetry config virtualenvs.in-project false
 RUN poetry install
 
