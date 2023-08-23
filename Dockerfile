@@ -21,7 +21,7 @@ COPY poetry.lock pyproject.toml ./
 #RUN poetry config virtualenv.create false
 RUN poetry config virtualenvs.in-project false
 #RUN poetry config install.user true
-RUN poetry install -G
+RUN poetry install
 
 COPY . .
 
