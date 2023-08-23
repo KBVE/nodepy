@@ -23,7 +23,7 @@ RUN poetry config virtualenvs.in-project false
 #RUN poetry config install.user true
 RUN poetry install
 
-COPY . .
+COPY . /app
 
 EXPOSE 5000
 
