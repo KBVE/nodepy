@@ -17,12 +17,14 @@ RUN apt update -y
 RUN apt upgrade -y
 
 RUN apt install ffmpeg curl -y
-
+RUN pip install flask yt-dlp pocketbase requests appwrite
 RUN npm install pm2 -g
 
 
 # Poetry 
-RUN curl -sSL https://install.python-poetry.org | python3 -
+#RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=${POETRY_HOME} python3 - && \
+    chmod a+x /opt/poetry/bin/poetry
 
 
 
@@ -33,12 +35,8 @@ RUN yarn install
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
-
-
-RUN pip install flask yt-dlp pocketbase requests appwrite
-
+WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
-
 RUN poetry install
 
 COPY . .
