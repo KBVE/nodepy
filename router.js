@@ -27,7 +27,9 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
     const _uuid = ctx.params.uuid;
     const _key = ctx.params.key;
 
-    if(!validApiKey(_uuid, _key)) {
+    const _valid = await validApiKey(_uuid, _key);
+
+    if(!_valid) {
       ctx.throw(500, "API Key invalid");
     }
     
