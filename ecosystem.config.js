@@ -7,6 +7,7 @@ module.exports = {
         interpreter: "/bin/bash",
         env: {
           NODE_ENV: "production",
+          LD_LIBRARY_PATH: "/usr/local/lib",
         },
       },
     ],
