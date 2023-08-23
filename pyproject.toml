@@ -1,12 +1,21 @@
 [tool.poetry]
 name = "Throwaway Tools"
 version = "0.0.1"
-description = "Test Case"
+description = "Test"
+authors = ["KBVE"]
+# New attributes
+license = "MIT"
+readme = "README.md"
+homepage = "https://kbve.com/project/nodepy"
+repository = "https://github.com/kbve/nodepy"
+keywords = ["add_your_keywords"]
+include = ["LICENSE"]
 
 [tool.poetry.dependencies]
+# Updated Python version
 python = ">=3.11.4,<4.0"
-langchain = ">=0.0.250"
-pydantic = ">=2.0.0"
+# langchain = ">=0.0.250"
+# pydantic = ">=2.0.0"
 llama-index = "^0.8.5.post2"
 anthropic = "^0.3.10"
 appwrite = "^2.0.2"
@@ -16,6 +25,9 @@ pypdf = "^3.15.2"
 lxml = "^4.9.3"
 sentence-transformers = "^2.2.2"
 guidance = "^0.0.64"
+#fastapi = "^0.101.1"
+#uvicorn = {extras = ["standard"], version = "^0.23.2"}
+#gunicorn = "^21.2.0"
 
 
 [tool.poetry.dev-dependencies]
