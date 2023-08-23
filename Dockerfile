@@ -19,7 +19,7 @@ RUN apt upgrade -y
 RUN apt install ffmpeg curl -y
 RUN npm install pm2 -g
 
-RUN pip install flask yt-dlp pocketbase requests appwrite chromadb --user
+RUN pip install flask yt-dlp pocketbase requests appwrite chromadb --user -t /opt/pysetup
 
 # Poetry 
 #RUN curl -sSL https://install.python-poetry.org | python3 -
