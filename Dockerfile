@@ -36,8 +36,6 @@ WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
 RUN poetry install
 
-RUN poetry add chromadb
-
 COPY package.json .
 RUN yarn install
 
