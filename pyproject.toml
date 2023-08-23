@@ -27,6 +27,7 @@ sentence-transformers = "^2.2.2"
 guidance = "^0.0.64"
 fastapi = "^0.101.1"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
+chromadb==0.3.22
 gunicorn = "^21.2.0"
 
 
@@ -75,7 +76,6 @@ build-backend = "poetry.masonry.api"
 # cffi==1.15.1
 # chardet==3.0.4
 # charset-normalizer==2.0.12
-# chromadb==0.3.22
 # cleo==2.0.1
 # click==8.1.3
 # clickhouse-connect==0.5.24
