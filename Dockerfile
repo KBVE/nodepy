@@ -18,6 +18,8 @@ COPY package.json .
 RUN yarn install
 
 COPY poetry.lock pyproject.toml ./
+RUN poetry config virtualenv.create false
+RUN poetry config install.user true
 RUN poetry install
 
 COPY . .
