@@ -6,6 +6,7 @@
     "main": "index.js",
     "scripts": {
         "start": "node app.js",
+        "dev": "nodemon app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
@@ -30,5 +31,19 @@
         "openai": "^4.0.1",
         "path": "^0.12.7",
         "pocketbase": "^0.15.2"
+    },
+    "nodemonConfig": {
+        "watch": [
+          "*.*"
+        ],
+        "ext": "js,mjs,cjs,json,html,py",
+        "ignore": [
+          "*.test.ts"
+        ],
+        "delay": "3",
+        "execMap": {
+          "ts": "ts-node"
+        }
+        
     }
 }
