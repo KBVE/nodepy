@@ -14,7 +14,7 @@ include = ["LICENSE"]
 [tool.poetry.dependencies]
 # Updated Python version
 python = ">=3.11.4,<4.0"
-langchain = ">=0.0.250"
+langchain = "0.0.274"
 #CHROMADB FIX START
 #pydantic = ">=1.9"
 pydantic = ">=1.9,<2.0"
@@ -33,7 +33,7 @@ guidance = "^0.0.64"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
 #chromadb = ">=0.4.6"
 gunicorn = "^21.2.0"
-chromadb = "^0.4.6"
+chromadb = "0.4.7"
 clarifai-grpc = "^9.7.3"
 
 

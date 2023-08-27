@@ -29,12 +29,12 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
 
     const _valid = await validApiKey(_uuid, _key);
 
-    if(!_valid) {
-      ctx.throw(500, "API Key invalid");
+    if(_valid === "kbve") {
+      ctx.throw(500, "UUID / KEY / FILE Invalid");
     }
     
 
-    const _file = ctx.params.file;
+    const _file = (ctx.params.file).toLowerCase().replace(/[^a-z]/g, "");
     let _json = "";
     if (ctx.query.json) {
       try {
@@ -45,8 +45,10 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
       }
     }
 
+
+
     const __pyN = await pyNodeManager(
-      _file.toLowerCase().replace(/[^a-z]/g, ""),
+      _file,
       JSON.stringify(_json).substring(0, 2500)
     );
 

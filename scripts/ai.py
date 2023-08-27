@@ -1,4 +1,4 @@
-import llama_index
+from llama_index import Document
 import langchain
 import chromadb
 import openai
