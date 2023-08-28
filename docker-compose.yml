@@ -1,4 +1,6 @@
 ### This is an older deployment, please disregard.
+### ghcr.io/kbve/docker-clarifai:main
+
 version: '3.7' 
 services:
   pocketbase:
