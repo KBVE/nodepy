@@ -16,7 +16,7 @@ function isJsonString(str) {
 
 router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
   try {
-    _v(`{r} -> api -> uuid ${ctx.params.uuid}`);
+    _v(`{r} -> api -> [RUN] @ uuid ${ctx.params.uuid} @ file ${ctx.params.file}`);
     if (!ctx.params.uuid) ctx.throw(500, "Missing UUID");
     if (!ctx.params.key) ctx.throw(500, "Missing Key");
     if (!ctx.params.file) ctx.throw(500, "Missing File Query");
@@ -24,6 +24,7 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
     const _uuid = ctx.params.uuid;
     const _key = ctx.params.key;
     const _file = ctx.params.file.toLowerCase().replace(/[^a-z]/g, "");
+
     //?   Query JSON String
     let _query = "";
     //?   Final JSON String
@@ -37,14 +38,29 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
       ctx.throw(500, "UUID / KEY / FILE Invalid");
     }
 
-    if (ctx.query.json) {
+    if(ctx.request.body.data) {
+      _query = ctx.request.body.data;
+      _v(`{r} -> api -> data ${JSON.stringify(_query)}`);
+    }
+    else if(ctx.query.json)
+    {
       try {
         //_json = JSON.stringify((ctx.query.json).replace(/[^a-zA-Z0-9 -]/g, ''));
         _query = JSON.parse(ctx.query.json);
+        _v(`{r} -> api -> data [QUERY] -> ${ctx.query.json}`);
       } catch (error) {
         ctx.throw(500, "JSON Formatting Error");
       }
     }
+
+    // if (ctx.request.body) {
+    //   try {
+    //     //_json = JSON.stringify((ctx.query.json).replace(/[^a-zA-Z0-9 -]/g, ''));
+    //     _query = JSON.parse(ctx.request.body);
+    //   } catch (error) {
+    //     ctx.throw(500, "JSON Formatting Error");
+    //   }
+    // }
 
     if (_query) {
       _json = {
@@ -52,6 +68,7 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
         ..._query,
       };
     } else {
+      _v('{r} -> api -> data was not found!');
       _json = _valid;
     }
 
