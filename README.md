@@ -16,6 +16,10 @@ After the packages are installed, you can start the dev environment with:
 
 - `poetry shell` then `yarn start`.
 
+#### Windows
+
+For Windows Users, you will have to add Poetry to your path, it should be located here `C:\Users\$USER\AppData\Roaming\Python\Scripts\poetry` , with replacing $USER.
+
 ### Typescript Migration
 
 Shifting the javascript codebase over to typescript would make things a bit easier in this mono-repo.
