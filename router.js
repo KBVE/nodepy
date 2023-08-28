@@ -5,8 +5,6 @@ const { pyNodeManager } = require("./pynode");
 
 const validApiKey = require("./appwrite");
 
-
-
 function isJsonString(str) {
   try {
     JSON.parse(str);
@@ -17,7 +15,6 @@ function isJsonString(str) {
 }
 
 router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
-   
   try {
     _v(`{r} -> api -> uuid ${ctx.params.uuid}`);
     if (!ctx.params.uuid) ctx.throw(500, "Missing UUID");
@@ -26,26 +23,37 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
 
     const _uuid = ctx.params.uuid;
     const _key = ctx.params.key;
+    const _file = ctx.params.file.toLowerCase().replace(/[^a-z]/g, "");
+    //?   Query JSON String
+    let _query = "";
+    //?   Final JSON String
+    let _json = "";
+
+    //TODO Redis Cache for _uuid, _key, so that it does not have to call the Appwrite Database.
 
     const _valid = await validApiKey(_uuid, _key);
 
-    if(_valid === "kbve") {
+    if (_valid === "kbve") {
       ctx.throw(500, "UUID / KEY / FILE Invalid");
     }
-    
 
-    const _file = (ctx.params.file).toLowerCase().replace(/[^a-z]/g, "");
-    let _json = "";
     if (ctx.query.json) {
       try {
         //_json = JSON.stringify((ctx.query.json).replace(/[^a-zA-Z0-9 -]/g, ''));
-        _json = JSON.parse(ctx.query.json);
+        _query = JSON.parse(ctx.query.json);
       } catch (error) {
         ctx.throw(500, "JSON Formatting Error");
       }
     }
 
-
+    if (_query) {
+      _json = {
+        ..._valid,
+        ..._query,
+      };
+    } else {
+      _json = _valid;
+    }
 
     const __pyN = await pyNodeManager(
       _file,
@@ -66,8 +74,6 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
     };
   }
 });
-
-
 
 router.all("/app/api/blueprint/:token", async (ctx, next) => {
   try {

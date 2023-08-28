@@ -29,11 +29,11 @@ async function validApiKey(uuid, api) {
     ]);
 
     if (total === 0) {
-      console.log(`${total} API Keys for ${uuid}`);
+      //console.log(`${total} API Keys for ${uuid}`);
       return valid;
     } else {
-      valid = documents;
-      console.log(valid);
+      valid = documents[0];
+      //console.log(valid);
 
       return valid;
     }
