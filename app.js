@@ -1,4 +1,5 @@
-//?         [lolPython]
+//?         [Main App]
+//TODO      [Migrate to Typescript]
 //*         [IMPORT]
 const Koa = require("koa");
 const proxy = require("koa-proxies");
