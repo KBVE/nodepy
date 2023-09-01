@@ -51,7 +51,7 @@ jobs:
               --endpoint='https://ap.kbve.com/v1' \
               --projectId='6436a6dc9a6b48db802f' \
               --key='${{ secrets.APPWRITE_API }}'
-            appwrite -v
+#            appwrite -v
 #            appwrite functions createDeployment \
 #              --functionId='64ec2f906524e458c14b' \
 #              --entrypoint='index.js' \
