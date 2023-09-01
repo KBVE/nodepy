@@ -1,4 +1,5 @@
 import weaviate
+from prodict import Prodict
 from llama_index.vector_stores import WeaviateVectorStore
 from pydantic import BaseModel, Field
 
