@@ -33,8 +33,8 @@ guidance = "^0.0.64"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
 #chromadb = ">=0.4.6"
 gunicorn = "^21.2.0"
-chromadb = "0.4.7"
 clarifai-grpc = "^9.7.3"
+weaviate-client = "^3.23.2"
 
 
 [tool.poetry.dev-dependencies]
