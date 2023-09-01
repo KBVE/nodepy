@@ -10,6 +10,6 @@ import re
 import sys
 
 
-data = sys.argv[1]
-jsonData = json.loads(data)
-print(f"{jsonData}")
+jsonData = Prodict.from_dict(json.loads(sys.argv[1]))
+
+print(f"Done")

@@ -79,7 +79,10 @@ router.all("/app/api/:uuid/:key/:file", async (ctx, next) => {
 
     let _pyN = await __pyN._process();
     if (_pyN) {
-      ctx.body = _pyN;
+      ctx.body = {
+        status: 200,
+        json: _pyN,
+      }
     } else {
       ctx.throw(500, "Issue with PyNode");
     }
