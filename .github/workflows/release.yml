@@ -41,8 +41,10 @@ jobs:
           uses: actions/checkout@v3
       -   name: Install Appwrite CLI
           shell: bash
-          working-directory: ./cloud/update-api-profile
-          run: curl -sL https://appwrite.io/cli/install.sh | bash
+          #working-directory: ./cloud/update-api-profile
+          run: |
+            chmod +x appwrite.sh
+            ./appwrite.sh
       -   name: Setup Appwrite CLI
           shell: bash
           working-directory: ./cloud/update-api-profile
@@ -59,7 +61,7 @@ jobs:
 #              --activate true
       
   publish:
-    needs: [cloudfunction]
+    needs: [install]
     runs-on: ubuntu-latest
     name: Publish image to Github Packages
     steps:
