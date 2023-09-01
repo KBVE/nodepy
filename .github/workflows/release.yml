@@ -52,11 +52,11 @@ jobs:
               --projectId='6436a6dc9a6b48db802f' \
               --key='${{ secrets.APPWRITE_API }}'
             appwrite -v
-            appwrite functions createDeployment \
-              --functionId='64ec2f906524e458c14b' \
-              --entrypoint='index.js' \
-              --code '.' \
-              --activate true
+#            appwrite functions createDeployment \
+#              --functionId='64ec2f906524e458c14b' \
+#              --entrypoint='index.js' \
+#              --code '.' \
+#              --activate true
       
   publish:
     needs: [cloudfunction]
