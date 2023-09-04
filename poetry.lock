@@ -1882,16 +1882,6 @@ docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.1)", "sphinx-
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-cov (>=4.1)", "pytest-mock (>=3.11.1)"]
 
 [[package]]
-name = "prodict"
-version = "0.8.18"
-description = "Prodict = Pro Dictionary with IDE friendly(auto code completion), dot-accessible attributes and more."
-optional = false
-python-versions = "*"
-files = [
-    {file = "prodict-0.8.18.tar.gz", hash = "sha256:7a4dfa0f9d361b34fc0f7367ec67923f97595f79917730f19fda7ec078dd1d77"},
-]
-
-[[package]]
 name = "protobuf"
 version = "4.24.1"
 description = ""
@@ -3287,4 +3277,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11.4,<4.0"
-content-hash = "611364736662ec38454219bf9e62f1342837eaddc68e3dd490675666f9df51d4"
+content-hash = "c857c63285968da4ba523e0f92eb75a20b16779ae1af65609b54c7df84041a45"
