@@ -36,6 +36,7 @@ gunicorn = "^21.2.0"
 clarifai-grpc = "^9.7.3"
 weaviate-client = "^3.23.2"
 gpt4all = "^1.0.8"
+unstructured = "^0.10.12"
 
 
 [tool.poetry.dev-dependencies]
